@@ -16,8 +16,10 @@ private:
 	Node * pointers; //Pointer to the array of Nodes
 public:
 	Node();
+	Node(Type value);
 	virtual ~Node();
 	Type getValue();
+	void setValue(Type value);
 	Node * getPointers();
 };
 

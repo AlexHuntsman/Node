@@ -9,10 +9,10 @@
 #include <iostream>
 
 using namespace std;
+
 template <class Type>
 Node<Type> ::Node()
 {
-	value = 0;
 	pointers = nullptr;
 }
 
@@ -27,6 +27,12 @@ Type Node<Type> :: getValue()
 {
 	return this -> value;
 	pointers = nullptr;
+}
+
+template <class Type>
+void Node<Type> :: setValue(Type value)
+{
+	this->value = value;
 }
 
 template <class Type>
