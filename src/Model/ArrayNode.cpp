@@ -5,7 +5,6 @@
  *      Author: ahun0442
  */
 
-#include <iostream>
 #include "ArrayNode.h"
 
 
@@ -37,12 +36,11 @@ ArrayNode<Type>::~ArrayNode()
 	//TODO Auto-generated destructor stub
 }
 
-template<class Type>
-ArrayNode<Type> * ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
+template <class Type>
+void ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
 {
 	this->next = next;
 }
-
 template<class Type>
 ArrayNode<Type> * ArrayNode<Type> :: getNext()
 {

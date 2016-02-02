@@ -7,6 +7,7 @@
 
 #ifndef MODEL_NODE_H_
 #define MODEL_NODE_H_
+#include <iostream>
 
 template <class Type>
 class Node
