@@ -12,8 +12,14 @@ using namespace std;
 template <class Type>
 CTECArray<Type>::CTECArray(int size)
 {
-	// TODO Auto-generated constructor stub
+	this->size = size;
+	head = nullptr;
 
+	if(size <= 0)
+	{
+		cerr << "Impossible!" << endl;
+		return;
+	}
 }
 template <class Type>
 CTECArray<Type>::~CTECArray()
@@ -34,6 +40,7 @@ Type* CTECArray<Type>::get(int position)
 	if(position >= size || position < 0)
 	{
 		return nullptr;
+		cerr << "Don't do this! out of bounds!!" << endl;
 	}
 	else
 	{
