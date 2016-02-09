@@ -79,7 +79,8 @@ Type* CTECArray<Type>::get(int position)
 			}
 			else
 			{
-				return current ->getValue();
+				Type temp = current->getValue();
+				return &temp;
 			}
 		}
 	}
