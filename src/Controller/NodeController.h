@@ -25,6 +25,7 @@ private:
 //	Node<int> intNode;
 //	ArrayNode<string> stringArrayNode;
 	CTECArray<string> * myStringArray;
+	CTECArray<int> * myIntArray;
 public:
 	NodeController();
 	virtual ~NodeController();
