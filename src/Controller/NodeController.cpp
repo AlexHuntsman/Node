@@ -24,7 +24,8 @@ void NodeController :: start ()
 {
 //	cout << intNode.getValue() << endl;
 //	cout << stringArrayNode.getValue() << endl;
-	string first = "first";
+	/**string first = "first";
+
 	string second = "second";
 	string third = "third";
 	string fourth = "fourth";
@@ -41,6 +42,9 @@ void NodeController :: start ()
 	myIntArray->set(2, 3);
 	myIntArray->set(3, 4);
 	myIntArray->set(4, 5);
+*/
+
+	arrayTimer.startTimer();
 
 	for(int index = 0; index < myStringArray->getSize(); index++)
 	{
@@ -50,5 +54,8 @@ void NodeController :: start ()
 	{
 		cout << "In my Int array the contents at spot " << index << " are: " << myIntArray->get(index) << endl;
 	}
+
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
 }
 //hello
