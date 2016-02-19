@@ -7,6 +7,7 @@
 
 #include "NodeController.h"
 
+
 NodeController::NodeController()
 {
 //	this->intNode.setValue(5);

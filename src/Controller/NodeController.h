@@ -28,6 +28,7 @@ private:
 //	ArrayNode<string> stringArrayNode;
 	CTECArray<string> * myStringArray;
 	CTECArray<int> * myIntArray;
+	Timer arrayTimer;
 public:
 	NodeController();
 	virtual ~NodeController();
