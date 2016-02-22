@@ -17,7 +17,6 @@
 #include "../Model/CTECArray.h"
 #include "../Model/CTECArray.cpp"
 #include "../Model/Timer.h"
-#include "../Model/Timer.cpp"
 
 using namespace std;
 
