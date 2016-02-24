@@ -14,6 +14,7 @@ NodeController::NodeController()
 //	this->stringArrayNode.setValue("words are fun");
 	myStringArray = new CTECArray<string>(5);
 	myIntArray = new CTECArray<int>(5);
+	myDoubleArray = new CTECArray<double>(5);
 }
 
 NodeController::~NodeController()
@@ -25,8 +26,7 @@ void NodeController :: start ()
 {
 //	cout << intNode.getValue() << endl;
 //	cout << stringArrayNode.getValue() << endl;
-	/**string first = "first";
-
+	string first = "first";
 	string second = "second";
 	string third = "third";
 	string fourth = "fourth";
@@ -43,7 +43,13 @@ void NodeController :: start ()
 	myIntArray->set(2, 3);
 	myIntArray->set(3, 4);
 	myIntArray->set(4, 5);
-*/
+
+	myIntArray->set(0, 1.1);
+	myIntArray->set(1, 2.2);
+	myIntArray->set(2, 3.3);
+	myIntArray->set(3, 4.4);
+	myIntArray->set(4, 5.5);
+
 
 	arrayTimer.startTimer();
 
@@ -55,6 +61,10 @@ void NodeController :: start ()
 	{
 		cout << "In my Int array the contents at spot " << index << " are: " << myIntArray->get(index) << endl;
 	}
+	for(int index = 0; index < myDoubleArray->getSize(); index++)
+		{
+			cout << "In my Double array the contents at spot " << index << " are: " << myDoubleArray->get(index) << endl;
+		}
 
 	arrayTimer.stopTimer();
 	arrayTimer.displayTimerInformation();
