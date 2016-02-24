@@ -23,6 +23,7 @@ public:
 	int getSize;
 	void addToFront(const Type& value);
 	void addToEnd(const Type& value);
+	void addAtIndex(int index, const Type& value);
 	Type getFront();
 	Type getEnd();
 	Type getFromIndex(int index);
