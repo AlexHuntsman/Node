@@ -20,7 +20,7 @@ CTECList<Type>::~CTECList()
 {
 
 }
-
+//Removes the node at the front
 template <class Type>
 Type CTECList<Type> :: removeFromFront()
 {
