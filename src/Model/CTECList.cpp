@@ -6,7 +6,9 @@
  */
 
 #include "CTECList.h"
+#include <sstream>
 
+using namespace std;
 
 template <class Type>
 CTECList<Type>::CTECList()
@@ -50,7 +52,10 @@ Type CTECList<Type> :: removeFromIndex(int index)
 	assert (this->size > 0);
 	assert(size > 0 && index >= 0 && index < size);
 
-	ArrayNode<Type> * previous, deleteMe, newNext;
+	ArrayNode<Type> * previous, deleteMe, newNext, current;
+
+	std::string searchItem = "";
+
 
 	if(index == 0)
 	{
@@ -62,10 +67,19 @@ Type CTECList<Type> :: removeFromIndex(int index)
 	}
 	else
 	{
+		cout << "What do you want to delete?" <<endl;
+			getline(cin,searchItem);
+			cout << "You entered: " << searchItem << endl << endl;
 		for(int spot = 0; spot < index+1; spot++)
 		{
-
-
+			if(current->value == searchItem)
+			{
+				deleteMe->value;
+			}
+			else
+			{
+				current = current->newNext;
+			}
 		}
 		this->calculateSize();
 	}
@@ -107,7 +121,42 @@ Type CTECList<Type> :: removeFromEnd()
 	//Loop over size
 	//or
 	//Loop until getNext()-getNext() ==nullptr
+	//grab the value from the last node
+	//set the next to last node to point to nullptr
 	//Before return the Cariable call calculateSize
+
+	assert(size > 0);
+	Type valueToRemove;
+
+	if(size == 1)
+	{
+		valueToRemove = removeFromFront();
+		end = nullptr;
+		calculateSize();
+		return valueToRemove;
+	}
+	else
+	{
+
+		ArrayNode<Type> * current = head;
+		for(int spot = 0; spot < size-1; spot++)
+		{
+			current = current->getNext();
+		}
+
+		ArrayNode<Type> * pointer = head;
+		while(pointer->getNext()->getNext() != nullptr)
+		{
+			pointer = pointer->getNext();
+		}
+
+		valueToRemove = current->getNext()->getValue();
+		end = current;
+		delete current->getNext();
+
+		this->calculatSize();
+		return valueToRemove;
+	}
 }
 
 

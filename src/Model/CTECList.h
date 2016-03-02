@@ -9,6 +9,9 @@
 #define CTECLIST_H_
 
 #include "ArrayNode.h"
+#include <string>
+
+
 
 template <class Type>
 class CTECList : public Node<Type>
@@ -18,6 +21,7 @@ private:
 	ArrayNode<Type> head;
 	ArrayNode<Type> end;
 	void calculateSize();
+	std::string searchItem;
 public:
 	CTECList();
 	virtual ~CTECList();
