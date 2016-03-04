@@ -83,8 +83,6 @@ Type CTECList<Type> :: removeFromIndex(int index)
 		}
 		this->calculateSize();
 	}
-
-
 	return thingToRemove;
 }
 

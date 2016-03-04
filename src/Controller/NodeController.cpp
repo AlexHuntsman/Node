@@ -15,6 +15,7 @@ NodeController::NodeController()
 	myStringArray = new CTECArray<string>(5);
 	myIntArray = new CTECArray<int>(5);
 	myDoubleArray = new CTECArray<double>(5);
+
 }
 
 NodeController::~NodeController()
@@ -49,6 +50,7 @@ void NodeController :: start ()
 	myIntArray->set(2, 3.3);
 	myIntArray->set(3, 4.4);
 	myIntArray->set(4, 5.5);
+
 
 
 	arrayTimer.startTimer();
