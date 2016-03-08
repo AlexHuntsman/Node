@@ -17,6 +17,8 @@
 #include "../Model/CTECArray.h"
 #include "../Model/CTECArray.cpp"
 #include "../Model/Timer.h"
+#include "../Model/CTECList.h"
+#include "../Model/CTECList.cpp"
 
 using namespace std;
 
@@ -29,6 +31,8 @@ private:
 	CTECArray<int> * myIntArray;
 	CTECArray<double> * myDoubleArray;
 	Timer arrayTimer;
+	CTECList<string> * myStringList;
+
 public:
 	NodeController();
 	virtual ~NodeController();

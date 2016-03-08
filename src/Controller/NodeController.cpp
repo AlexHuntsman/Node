@@ -12,9 +12,10 @@ NodeController::NodeController()
 {
 //	this->intNode.setValue(5);
 //	this->stringArrayNode.setValue("words are fun");
-	myStringArray = new CTECArray<string>(5);
-	myIntArray = new CTECArray<int>(5);
-	myDoubleArray = new CTECArray<double>(5);
+	//myStringArray = new CTECArray<string>(5);
+	//myIntArray = new CTECArray<int>(5);
+	//myDoubleArray = new CTECArray<double>(5);
+	myStringList = new CTECList<string>(5);
 
 }
 
@@ -33,23 +34,30 @@ void NodeController :: start ()
 	string fourth = "fourth";
 	string fifth = "fifth";
 
-	myStringArray->set(0, first);
-	myStringArray->set(1, second);
-	myStringArray->set(2, third);
-	myStringArray->set(3, fourth);
-	myStringArray->set(4, fifth);
+	//myStringArray->set(0, first);
+	//myStringArray->set(1, second);
+	//myStringArray->set(2, third);
+	//myStringArray->set(3, fourth);
+	//myStringArray->set(4, fifth);
 
-	myIntArray->set(0, 1);
-	myIntArray->set(1, 2);
-	myIntArray->set(2, 3);
-	myIntArray->set(3, 4);
-	myIntArray->set(4, 5);
+	//myIntArray->set(0, 1);
+	//myIntArray->set(1, 2);
+	//myIntArray->set(2, 3);
+	//myIntArray->set(3, 4);
+	//myIntArray->set(4, 5);
 
-	myIntArray->set(0, 1.1);
-	myIntArray->set(1, 2.2);
-	myIntArray->set(2, 3.3);
-	myIntArray->set(3, 4.4);
-	myIntArray->set(4, 5.5);
+	//myIntArray->set(0, 1.1);
+	//myIntArray->set(1, 2.2);
+	//myIntArray->set(2, 3.3);
+	//myIntArray->set(3, 4.4);
+	//myIntArray->set(4, 5.5);
+
+	myStringList->addToFront(first);
+	myStringList->addToEnd(second);
+	myStringList->set(2, third);
+	myStringList->set(3, fourth);
+	myStringList->set(4, fifth);
+
 
 
 
