@@ -157,9 +157,5 @@ Type CTECList<Type> :: removeFromEnd()
 	}
 }
 
-void addToFront(const Type& value);
-{
-
-}
 
 
