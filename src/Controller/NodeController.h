@@ -31,7 +31,7 @@ private:
 	CTECArray<int> * myIntArray;
 	CTECArray<double> * myDoubleArray;
 	Timer arrayTimer;
-	CTECList<string> * myStringList;
+	CTECList<int> * myNumberList;
 
 public:
 	NodeController();

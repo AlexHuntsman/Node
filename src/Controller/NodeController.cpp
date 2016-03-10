@@ -15,7 +15,7 @@ NodeController::NodeController()
 	//myStringArray = new CTECArray<string>(5);
 	//myIntArray = new CTECArray<int>(5);
 	//myDoubleArray = new CTECArray<double>(5);
-	myStringList = new CTECList<string>(5);
+	myNumberList = new CTECList<int>(5);
 
 }
 
@@ -28,11 +28,11 @@ void NodeController :: start ()
 {
 //	cout << intNode.getValue() << endl;
 //	cout << stringArrayNode.getValue() << endl;
-	string first = "first";
-	string second = "second";
-	string third = "third";
-	string fourth = "fourth";
-	string fifth = "fifth";
+	//string first = "first";
+	//string second = "second";
+	//string third = "third";
+	//string fourth = "fourth";
+	//string fifth = "fifth";
 
 	//myStringArray->set(0, first);
 	//myStringArray->set(1, second);
@@ -52,11 +52,11 @@ void NodeController :: start ()
 	//myIntArray->set(3, 4.4);
 	//myIntArray->set(4, 5.5);
 
-	myStringList->addToFront(first);
-	myStringList->addToEnd(second);
-	myStringList->set(2, third);
-	myStringList->set(3, fourth);
-	myStringList->set(4, fifth);
+	myNumberList->addToFront(1);
+	myNumberList->addToEnd(2);
+	myNumberList->set(2, 3);
+	myNumberList->set(3, 4);
+	myNumberList->set(4, 5);
 
 
 
