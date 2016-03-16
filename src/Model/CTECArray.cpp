@@ -96,3 +96,38 @@ void CTECArray<Type>::set(int position, const Type& value)
 	}
 
 }
+/*
+ 1 Assert size > 0
+ 2 Dclare and init valid return variable
+ 3 referance to head and loop
+ 4 if there, return index else fo to next
+ 5 return index
+ */
+
+template <class Type>
+int CTECArray<Type> :: nextIndexOf(int startingindex, Type searchValue)
+{
+    assert(this->size > 0);
+    assert(startingIndex >= 0 && startingIndex < this->size);
+
+    int indexNotFound = -1;
+
+    ArrayNode<Type> * current = head;
+    for(int index = 0; index < startingIndex < this->size)
+    {
+        current = current->getNext();
+    }
+
+    for(int index = startingindex; index < this->size; index++)
+        if(current->getValue() == searchValue)
+        {
+            return index;
+        }
+        else
+        {
+            current = current->getNext();
+        }
+
+    return indexNotFound;
+
+}
