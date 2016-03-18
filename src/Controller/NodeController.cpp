@@ -54,9 +54,9 @@ void NodeController :: start ()
 
 	myNumberList->addToFront(1);
 	myNumberList->addToEnd(2);
-	myNumberList->set(2, 3);
-	myNumberList->set(3, 4);
-	myNumberList->set(4, 5);
+	//myNumberList->set(2, 3);
+	//myNumberList->set(3, 4);
+	//myNumberList->set(4, 5);
 
 
 

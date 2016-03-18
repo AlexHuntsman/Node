@@ -18,7 +18,7 @@ private:
 	Node * pointers; //Pointer to the array of Nodes
 public:
 	Node();
-	//Node(const Type& value);
+	Node(const Type& value);
 	virtual ~Node();
 	Type getValue();
 	void setValue(const Type& value);

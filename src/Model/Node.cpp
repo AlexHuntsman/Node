@@ -17,6 +17,12 @@ Node<Type> ::Node()
 }
 
 template <class Type>
+Node<Type> ::Node(const Type& value)
+{
+	this->setValue(value);
+}
+
+template <class Type>
 Node<Type>::~Node()
 {
 

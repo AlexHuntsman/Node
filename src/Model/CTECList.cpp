@@ -258,3 +258,5 @@ void CTECList<Type> :: addToEnd(const Type& value)
 
 	calculateSize();
 }
+
+
