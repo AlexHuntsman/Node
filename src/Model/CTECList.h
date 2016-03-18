@@ -18,8 +18,9 @@ class CTECList : public Node<Type>
 {
 private:
 	int size;
-	ArrayNode<Type> head;
-	ArrayNode<Type> end;
+	ArrayNode<Type> *head;
+	ArrayNode<Type> *end;
+	ArrayNode<Type> *newStuff;
 	void calculateSize();
 	std::string searchItem;
 public:
@@ -35,8 +36,8 @@ public:
 	Type removeFromFront();
 	Type removeFromEnd();
 	Type removeFromIndex(int index);
-	Type set(int index, const Type& value);
-
+	//Type set(int index, const Type& value);
+	int indexOf(Type searchValue);
 
 };
 

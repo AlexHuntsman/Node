@@ -111,7 +111,7 @@ void CTECList<Type> :: calculateSize()
 {
 	assert(size > 0);
 	assert(size >= 0);
-	ArrayNode<Type> * counterPointer;
+	ArrayNode<Type> * counterPointer = head;
 	int count = 0;
 
 	if(counterPointer == nullptr)
@@ -241,7 +241,8 @@ Type CTECList<Type> :: getFromIndex(int index)
 template<class Type>
 void CTECList<Type> ::addToFront(const Type& value)
 {
-	ArrayNode<Type> * newStuff = new ArrayNode<Type>(value, head);
+
+	ArrayNode<Type>  *newStuff = new ArrayNode<Type>(value, head);
 	head = newStuff;
 
 	calculateSize();
@@ -250,8 +251,9 @@ void CTECList<Type> ::addToFront(const Type& value)
 template<class Type>
 void CTECList<Type> :: addToEnd(const Type& value)
 {
+
 	ArrayNode<Type> * newStuff = new ArrayNode<Type>(value, head);
-	end->setNext(newStuff);
+	end-> setNext(newStuff);
 	end = newStuff;
 
 	calculateSize();

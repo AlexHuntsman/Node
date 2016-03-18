@@ -15,10 +15,11 @@ class ArrayNode : public Node<Type>
 {
 private:
 	ArrayNode * next;
+
 public:
 	ArrayNode();
 	ArrayNode(const Type& value);
-	ArrayNode(const Type& value, ArrayNode * next);
+	ArrayNode(const Type& value, ArrayNode *next);
 	virtual ~ArrayNode();
 	ArrayNode * getNext();
 	void setNext(ArrayNode * next);

@@ -105,7 +105,7 @@ void CTECArray<Type>::set(int position, const Type& value)
  */
 
 template <class Type>
-int CTECArray<Type> :: nextIndexOf(int startingindex, Type searchValue)
+int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
 {
     assert(this->size > 0);
     assert(startingIndex >= 0 && startingIndex < this->size);
@@ -113,12 +113,12 @@ int CTECArray<Type> :: nextIndexOf(int startingindex, Type searchValue)
     int indexNotFound = -1;
 
     ArrayNode<Type> * current = head;
-    for(int index = 0; index < startingIndex < this->size)
+    for(int index = 0; index < startingIndex < this->size; index++)
     {
         current = current->getNext();
     }
-
-    for(int index = startingindex; index < this->size; index++)
+    int indexOf(Type searchValue);
+    for(int index = startingIndex; index < this->size; index++)
         if(current->getValue() == searchValue)
         {
             return index;

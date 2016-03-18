@@ -10,12 +10,12 @@
 
 NodeController::NodeController()
 {
-//	this->intNode.setValue(5);
-//	this->stringArrayNode.setValue("words are fun");
+	//this->intNode.setValue(5);
+	//this->stringArrayNode.setValue("words are fun");
 	//myStringArray = new CTECArray<string>(5);
 	//myIntArray = new CTECArray<int>(5);
 	//myDoubleArray = new CTECArray<double>(5);
-	myNumberList = new CTECList<int>(5);
+	myNumberList = new CTECList<int>();
 
 }
 
@@ -63,18 +63,18 @@ void NodeController :: start ()
 
 	arrayTimer.startTimer();
 
-	for(int index = 0; index < myStringArray->getSize(); index++)
-	{
-		cout << "In my String array the contents at spot " << index << " are: " << myStringArray->get(index) << endl;
-	}
-	for(int index = 0; index < myIntArray->getSize(); index++)
-	{
-		cout << "In my Int array the contents at spot " << index << " are: " << myIntArray->get(index) << endl;
-	}
-	for(int index = 0; index < myDoubleArray->getSize(); index++)
-		{
-			cout << "In my Double array the contents at spot " << index << " are: " << myDoubleArray->get(index) << endl;
-		}
+	//for(int index = 0; index < myStringArray->getSize(); index++)
+//{
+	//	cout << "In my String array the contents at spot " << index << " are: " << myStringArray->get(index) << endl;
+	//}
+	//for(int index = 0; index < myIntArray->getSize(); index++)
+	//{
+	//	cout << "In my Int array the contents at spot " << index << " are: " << myIntArray->get(index) << endl;
+	//}
+	//for(int index = 0; index < myDoubleArray->getSize(); index++)
+	//	{
+	//		cout << "In my Double array the contents at spot " << index << " are: " << myDoubleArray->get(index) << endl;
+	//	}
 
 	arrayTimer.stopTimer();
 	arrayTimer.displayTimerInformation();
