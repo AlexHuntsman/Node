@@ -170,7 +170,7 @@ Type CTECList<Type> :: getFront()
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = this->head->getNext();
 	//get what was in the head node
-	thingToReturn = this->head->getVaue();
+	thingToReturn = this->head->g
 
 	this->calculateSize();
 
