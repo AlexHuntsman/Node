@@ -6,6 +6,7 @@
  */
 
 #include "NodeController.h"
+#include <CMath>
 
 
 NodeController::NodeController()
@@ -15,7 +16,7 @@ NodeController::NodeController()
 	//myStringArray = new CTECArray<string>(5);
 	//myIntArray = new CTECArray<int>(5);
 	//myDoubleArray = new CTECArray<double>(5);
-	myNumberList = new CTECList<int>();
+	//myNumberList = new CTECList<int>();
 
 }
 
@@ -24,6 +25,22 @@ NodeController::~NodeController()
 	//TODO Auto-geerated deconstructor stub
 }
 
+void NodeController::checkSorts()
+{
+	CTECArray<int> numbersInArray(5000);
+	CTECList<int> numbersInList();
+	for(int spot = 0; spot < 5000; spot++)
+	{
+		int randomValue = rand();
+		numbersInArray.set(spot, randomValue);
+		numbersInList.addToEnd(randomValue);
+	}
+	Timer sortTimer;
+	sortTimer.startTimer();
+	numbersInList.selectonSort();
+	sortTimer.stopTimer();
+
+}
 void NodeController :: start ()
 {
 //	cout << intNode.getValue() << endl;
@@ -52,8 +69,8 @@ void NodeController :: start ()
 	//myIntArray->set(3, 4.4);
 	//myIntArray->set(4, 5.5);
 
-	myNumberList->addToFront(1);
-	myNumberList->addToEnd(2);
+	//myNumberList->addToFront(1);
+	//myNumberList->addToEnd(2);
 	//myNumberList->set(2, 3);
 	//myNumberList->set(3, 4);
 	//myNumberList->set(4, 5);
@@ -78,5 +95,6 @@ void NodeController :: start ()
 
 	arrayTimer.stopTimer();
 	arrayTimer.displayTimerInformation();
+
 }
-//hello
+

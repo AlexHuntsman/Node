@@ -26,16 +26,20 @@ class NodeController
 {
 private:
 
-	CTECArray<string> * myStringArray;
-	CTECArray<int> * myIntArray;
-	CTECArray<double> * myDoubleArray;
+	//CTECArray<string> * myStringArray;
+	//CTECArray<int> * myIntArray;
+	//CTECArray<double> * myDoubleArray;
 	Timer arrayTimer;
-	CTECList<int> * myNumberList;
+	//CTECList<int> * myNumberList;
+	CTECList<int> * numbersInList();
+	CTECArray<int> * numbersInArray();
+
 
 public:
 	NodeController();
 	virtual ~NodeController();
 	void start();
+	void checkSorts();
 };
 
 #endif /* CONTROLLER_NODECONTROLLER_H_ */

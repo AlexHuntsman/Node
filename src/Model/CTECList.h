@@ -38,7 +38,8 @@ public:
 	Type removeFromIndex(int index);
 	//Type set(int index, const Type& value);
 	int indexOf(Type searchValue);
-
+	void swap(int indexOne, int indexTwo);
+	void selectonSort();
 };
 
 

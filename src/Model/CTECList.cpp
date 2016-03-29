@@ -6,7 +6,7 @@
  */
 
 #include "CTECList.h"
-#include <sstream>
+
 
 using namespace std;
 
@@ -72,29 +72,14 @@ Type CTECList<Type> :: removeFromIndex(int index)
 	assert (this->size > 0);
 	assert(size > 0 && index >= 0 && index < size);
 
-	ArrayNode<Type> * previous, deleteMe, newNext, current;
+	ArrayNode<Type> * previous, deleteMe, newNext;
 
-	std::string searchItem = "";
-
-
-	if(index == 0)
-	{
-		thingToRemove = removeFromFront();
-	}
-	else if(index == size-1)
-	{
-		thingToRemove = removeFromEnd();
-	}
-	else
-	{
-		cout << "What do you want to delete?" <<endl;
-			getline(cin,searchItem);
-			cout << "You entered: " << searchItem << endl << endl;
-		for(int spot = 0; spot < index+1; spot++)
+	ArrayNode<Type> * current = head;
+		for(int spot = 0; spot <= index; spot++)
 		{
-			if(current->value == searchItem)
+			if(spot == index)
 			{
-				deleteMe->value;
+				thingToRemove = current->getValue();
 			}
 			else
 			{
@@ -170,7 +155,7 @@ Type CTECList<Type> :: getFront()
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = this->head->getNext();
 	//get what was in the head node
-	thingToReturn = this->head->g
+	thingToReturn = this->head->getValue();
 
 	this->calculateSize();
 
@@ -204,37 +189,18 @@ Type CTECList<Type> :: getFromIndex(int index)
 	assert (this->size > 0);
 	assert(size > 0 && index >= 0 && index < size);
 
-	ArrayNode<Type> * previous, newNext, current;
+	ArrayNode<Type> * current = head;
 
-	std::string searchItem = "";
-
-
-	if(index == 0)
-	{
-		thingToReturn = getFront();
-	}
-	else if(index == size-1)
-	{
-		thingToReturn = getEnd();
-	}
-	else
-	{
-		cout << "What do you want to get" <<endl;
-			getline(cin,searchItem);
-			cout << "You entered: " << searchItem << endl << endl;
-		for(int spot = 0; spot < index+1; spot++)
+		for(int spot = 0; spot <= index; spot++)
 		{
-			if(current->value == searchItem)
+			if(spot == index)
 			{
-				thingToReturn = current->getValue;
+				thingToReturn = current->getValue();
 			}
-			else
-			{
-				current = current->newNext;
-			}
+				current = current->getNext();
 		}
 		this->calculateSize();
-	}
+
 	return thingToReturn;
 }
 
@@ -257,6 +223,41 @@ void CTECList<Type> :: addToEnd(const Type& value)
 	end = newStuff;
 
 	calculateSize();
+}
+
+template<class Type>
+void CTECList<Type> :: swap(int indexOne, int indexTwo)
+{
+	assert(indexOne < size && indexTwo < size);
+	ArrayNode<Type> * first = getFromIndex(indexOne);
+	ArrayNode<Type> * second = getFromIndex(indexTwo);
+	ArrayNode<Type> * temp = new ArrayNode<Type>();
+	temp->setValue(first->getValue());
+	first->setValue(second->getValue());
+	second->setValue(temp->getValue());
+
+	delete temp;
+}
+
+template<class Type>
+void CTECList<Type> ::selectonSort()
+{
+	int innerLoop, outerLoop;
+	for(innerLoop = 0; outerLoop < this->size-1; outerLoop++)
+	{
+		int selectedMinimum = outerLoop;
+		for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+		{
+			if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
+			{
+				selectedMinimum = innerLoop;
+			}
+		}
+		if(selectedMinimum != outerLoop)
+		{
+			swap(outerLoop, selectedMinimum);
+		}
+	}
 }
 
 

@@ -131,3 +131,24 @@ int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
     return indexNotFound;
 
 }
+template<class Type>
+void CTECArray<Type> ::selectonSort()
+{
+	int innerLoop, outerLoop;
+	for(innerLoop = 0; outerLoop < this->size-1; outerLoop++)
+	{
+		int selectedMinimum = outerLoop;
+		for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+		{
+			if(get(innerLoop) < get(selectedMinimum))
+			{
+				selectedMinimum = innerLoop;
+			}
+		}
+		if(selectedMinimum != outerLoop)
+		{
+			swap(outerLoop, selectedMinimum);
+		}
+	}
+}
+
