@@ -36,6 +36,9 @@ private:
 	void mergesort(int dataArray [], int size);
 	void merge(int data [], int sizeOne, int sizeTwo);
 
+	void quicksort(int first, int last);
+	int partition(int first, int last);
+
 	//CTECList<int> * myNumberList;
 	CTECList<int> * numbersInList();
 	CTECArray<int> * numbersInArray();

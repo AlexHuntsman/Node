@@ -175,3 +175,35 @@ void NodeController::merge(int data[], int sizeOne, int sizeTwo)
 	delete [] temp;
 }
 
+void NodeController ::quicksort(int first, int last)
+{
+	int pivotIndex;
+	if(first < last)
+	{
+		pivotIndex = partition(first, last);
+		quicksort(first, pivotIndex-1);
+		quicksort(pivotIndex+1, last);
+	}
+}
+int NodeController::partition(int first, int last)
+{
+	int pivot;
+
+	int index, smallIndex;
+	swap(first, (first + last)/2);
+
+	pivot = mergeData[first];
+	smallIndex = first;
+
+	for(index = first + 1; index<= last; index++)
+	{
+		if(mergeData[index]< pivot)
+		{
+			smallIndex++;
+			swap(smallIndex, index);
+		}
+	}
+	swap(first, smallIndex);
+	return smallIndex;
+}
+
