@@ -16,6 +16,7 @@ class CTECArray
 private:
 	int size;
 	int length;
+	int innerLoop, outerLoop;
 	ArrayNode<Type> * head;
 public:
 	CTECArray(int size);
@@ -25,6 +26,7 @@ public:
 	void set(int position,const Type& value);
 	int nextIndexOf(int startingIndex, Type value);
 	void selectonSort();
+    void swap(int indexOne, int indexTwo);
 };
 
 #endif /* MODEL_CTECARRAY_H_ */

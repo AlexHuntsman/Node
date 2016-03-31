@@ -25,6 +25,7 @@ CTECList<Type>::CTECList()
  * delete final
  * reset size, head, end to default
  */
+
 template <class Type>
 CTECList<Type>::~CTECList()
 {
@@ -44,6 +45,26 @@ CTECList<Type>::~CTECList()
 	size = 0;
 }
 //Removes the node at the front
+template<class Type>
+void CTECList<Type> :: set(int index, const Type& value)
+{
+    //bounds cheack for size and negative
+    assert(index < size && index >= 0);
+    
+    ArrayNode<Type> * current = head;
+    for (int spot = 0; spot <= index; spot++)
+    {
+        if (spot != index)
+        {
+            current = current->getNext();
+        } else
+        {
+            current->setValue(value);
+        }
+    }
+}
+
+
 template <class Type>
 Type CTECList<Type> :: removeFromFront()
 {
@@ -53,7 +74,7 @@ Type CTECList<Type> :: removeFromFront()
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = this->head->getNext();
 	//get what was in the head node
-	thingToRemove = this->head->getVaue();
+	thingToRemove = head->getValue();
 	//Delete what head is pointing to
 	delete this->head;
 	//Set head to the new head
@@ -72,7 +93,7 @@ Type CTECList<Type> :: removeFromIndex(int index)
 	assert (this->size > 0);
 	assert(size > 0 && index >= 0 && index < size);
 
-	ArrayNode<Type> * previous, deleteMe, newNext;
+	ArrayNode<Type> * deleteMe;
 
 	ArrayNode<Type> * current = head;
 		for(int spot = 0; spot <= index; spot++)
@@ -83,19 +104,19 @@ Type CTECList<Type> :: removeFromIndex(int index)
 			}
 			else
 			{
-				current = current->newNext;
+				current = current->getNext();
 			}
 		}
 		this->calculateSize();
-	}
+
 	return thingToRemove;
 }
 
 template<class Type>
 void CTECList<Type> :: calculateSize()
 {
-	assert(size > 0);
-	assert(size >= 0);
+	assert(this->size > 0);
+	assert(this->size >= 0);
 	ArrayNode<Type> * counterPointer = head;
 	int count = 0;
 
@@ -139,17 +160,17 @@ Type CTECList<Type> :: removeFromEnd()
 	}
 
 
-	valueToRemove = current->getNext();
+    valueToRemove = current->getNext()->getValue();
 
 	delete current->getNext();
-	this->calculatSize();
+	this->calculateSize();
 	return valueToRemove;
 }
 
 template <class Type>
 Type CTECList<Type> :: getFront()
 {
-	assert(size >0);
+	assert(this->size > 0);
 	//Create a pointer to what is after head
 	Type thingToReturn;
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
@@ -176,7 +197,7 @@ assert(size > 0);
 
 		valueToReturn = current->getNext()->getValue();
 
-		this->calculatSize();
+		this->calculateSize();
 		return valueToReturn;
 
 }
@@ -229,24 +250,20 @@ template<class Type>
 void CTECList<Type> :: swap(int indexOne, int indexTwo)
 {
 	assert(indexOne < size && indexTwo < size);
-	ArrayNode<Type> * first = getFromIndex(indexOne);
-	ArrayNode<Type> * second = getFromIndex(indexTwo);
-	ArrayNode<Type> * temp = new ArrayNode<Type>();
-	temp->setValue(first->getValue());
-	first->setValue(second->getValue());
-	second->setValue(temp->getValue());
 
-	delete temp;
+	Type temp = getFromIndex(indexOne);
+	set(indexOne, getFromIndex(indexTwo));
+	set(indexTwo, temp);
 }
 
 template<class Type>
 void CTECList<Type> ::selectonSort()
 {
-	int innerLoop, outerLoop;
 	for(innerLoop = 0; outerLoop < this->size-1; outerLoop++)
 	{
 		int selectedMinimum = outerLoop;
-		for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+
+		for(int innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
 		{
 			if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
 			{

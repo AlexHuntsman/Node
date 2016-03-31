@@ -134,7 +134,7 @@ int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
 template<class Type>
 void CTECArray<Type> ::selectonSort()
 {
-	int innerLoop, outerLoop;
+
 	for(innerLoop = 0; outerLoop < this->size-1; outerLoop++)
 	{
 		int selectedMinimum = outerLoop;
@@ -150,5 +150,17 @@ void CTECArray<Type> ::selectonSort()
 			swap(outerLoop, selectedMinimum);
 		}
 	}
+}
+template<class Type>
+void CTECArray<Type> :: swap(int indexOne, int indexTwo)
+{
+	{
+		assert(indexOne < size && indexTwo < size);
+
+		Type temp = get(indexOne);
+		set(indexOne, get(indexTwo));
+		set(indexTwo, temp);
+	}
+
 }
 

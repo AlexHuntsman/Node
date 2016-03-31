@@ -8,7 +8,6 @@
 #include "NodeController.h"
 #include <CMath>
 
-
 NodeController::NodeController()
 {
 	//this->intNode.setValue(5);
@@ -28,8 +27,8 @@ NodeController::~NodeController()
 void NodeController::checkSorts()
 {
 	CTECArray<int> numbersInArray(5000);
-	CTECList<int> numbersInList();
-	for(int spot = 0; spot < 5000; spot++)
+	CTECList<int> numbersInList;
+	for (int spot = 0; spot < 5000; spot++)
 	{
 		int randomValue = rand();
 		numbersInArray.set(spot, randomValue);
@@ -39,9 +38,11 @@ void NodeController::checkSorts()
 	sortTimer.startTimer();
 	numbersInList.selectonSort();
 	sortTimer.stopTimer();
+	sortTimer.displayTimerInformation();
+    sortTimer.resetTimer();
 
 }
-void NodeController :: start ()
+void NodeController::start()
 {
 //	cout << intNode.getValue() << endl;
 //	cout << stringArrayNode.getValue() << endl;
@@ -75,9 +76,6 @@ void NodeController :: start ()
 	//myNumberList->set(3, 4);
 	//myNumberList->set(4, 5);
 
-
-
-
 	arrayTimer.startTimer();
 
 	//for(int index = 0; index < myStringArray->getSize(); index++)
@@ -96,5 +94,84 @@ void NodeController :: start ()
 	arrayTimer.stopTimer();
 	arrayTimer.displayTimerInformation();
 
+}
+
+void NodeController::doMergesort()
+{
+	mergeData = new int[5000];
+
+	for (int spot = 0; spot < 5000; spot++)
+	{
+		int myRandom = rand();
+		mergeData[spot] = myRandom;
+	}
+	for (int spot = 0; spot < 5000; spot++)
+	{
+		cout << mergeData[spot] << ", ";
+	}
+	Timer mergeTimer;
+	mergeTimer.startTimer();
+
+	mergesort(mergeData, 5000);
+
+	mergeTimer.stopTimer();
+	mergeTimer.displayTimerInformation();
+	for (int spot = 0; spot < 5000; spot++)
+		{
+			cout << mergeData[spot] << ", ";
+		}
+    mergeTimer.resetTimer();
+	delete mergeData;
+}
+
+void NodeController::mergesort(int data[], int size)
+{
+	int sizeOne;
+	int sizeTwo;
+
+	if(size > 1)
+	{
+		sizeOne = size/2;
+		sizeTwo = size-sizeOne;
+
+		mergesort(data, sizeOne);
+		mergesort((data+sizeOne), sizeTwo);
+		merge(data, sizeOne, sizeTwo);
+	}
+}
+
+void NodeController::merge(int data[], int sizeOne, int sizeTwo)
+{
+	int * temp;
+	int copied = 0;
+	int copied1 = 0;
+	int copied2 = 0;
+	int index;
+
+	temp = new int[sizeOne + sizeTwo];
+
+	while ((copied1 < sizeOne) && (copied2 < sizeTwo))
+	{
+		if (data[copied1] < (data + sizeOne)[copied2])
+		{
+			temp[copied++] = data[copied++];
+		} else
+		{
+			temp[copied++] = (data + sizeOne)[copied++];
+		}
+	}
+	while (copied1 < sizeOne)
+	{
+		temp[copied++] = data[copied++];
+	}
+	while (copied2 < sizeTwo)
+	{
+		temp[copied++] = (data + sizeOne)[copied++];
+	}
+	for(index = 0; index < sizeOne + sizeTwo; index++)
+	{
+		data[index] = temp[index];
+	}
+	delete [] temp;
 }
 

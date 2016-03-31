@@ -10,14 +10,11 @@
 
 #include <iostream>
 #include <string>
-#include "../Model/Node.h"
 #include "../Model/Node.cpp"
-#include "../Model/ArrayNode.h"
 #include "../Model/ArrayNode.cpp"
-#include "../Model/CTECArray.h"
 #include "../Model/CTECArray.cpp"
 #include "../Model/Timer.h"
-#include "../Model/CTECList.h"
+
 #include "../Model/CTECList.cpp"
 
 using namespace std;
@@ -30,6 +27,15 @@ private:
 	//CTECArray<int> * myIntArray;
 	//CTECArray<double> * myDoubleArray;
 	Timer arrayTimer;
+	void sortData();
+	void testList();
+	void searchTest();
+
+	int * mergeData;
+	void doMergesort();
+	void mergesort(int dataArray [], int size);
+	void merge(int data [], int sizeOne, int sizeTwo);
+
 	//CTECList<int> * myNumberList;
 	CTECList<int> * numbersInList();
 	CTECArray<int> * numbersInArray();

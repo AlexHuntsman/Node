@@ -9,8 +9,7 @@
 #define CTECLIST_H_
 
 #include "ArrayNode.h"
-#include <string>
-
+#include <assert.h>
 
 
 template <class Type>
@@ -18,6 +17,8 @@ class CTECList : public Node<Type>
 {
 private:
 	int size;
+	int innerLoop;
+	int outerLoop;
 	ArrayNode<Type> *head;
 	ArrayNode<Type> *end;
 	ArrayNode<Type> *newStuff;
@@ -36,7 +37,7 @@ public:
 	Type removeFromFront();
 	Type removeFromEnd();
 	Type removeFromIndex(int index);
-	//Type set(int index, const Type& value);
+	void set(int index, const Type& value);
 	int indexOf(Type searchValue);
 	void swap(int indexOne, int indexTwo);
 	void selectonSort();
